@@ -107,24 +107,17 @@
         submitBtn.disabled = !dob.value || !address.value || !city.value || !country.value;
       });
       let countrydetails ={dob,address,city,country};
-      localStorage.setItem("personalDetails", JSON.stringify(countrydetails));
-        
-       function (){
-        window.parent.postMessage(
+      window.parent.postMessage(
             JSON.stringify({
               event_code: "ym-client-event",
-              data: JSON.stringify({
-                event: {
-                  code: "countrydetails",
-                  data: {
-                    countrydetails: countrydetails,
-                  },
-                },
-              }),
+            
+               data:countrydetails
+              
             }),
             "*"
           );
-       }
+      
+ 
        </script>
   </body>
 </html>
