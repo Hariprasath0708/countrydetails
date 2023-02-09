@@ -64,7 +64,7 @@ button[type="submit"] {
 <body>
    <form id="form">
   <div>
-    <label for="dob">Date of Birth:</label>
+    <label for="dob">Date of Birth: </label>
     <input type="date" id="dob" required>
   </div>
   <br>
@@ -99,30 +99,22 @@ button[type="submit"] {
   let address = document.getElementById("address").value;
   let city = document.getElementById("city").value;
   let country = document.getElementById("country").value;
+console.log(dob)
+console.log(address)
+console.log(city)
+console.log(country)
+  
+       var a =dob + '/' + address + '/'+ city +'/'+country;
 
-  if (dob && address && city && country) {
-    localStorage.setItem("dob", dob);
-    localStorage.setItem("address", address);
-    localStorage.setItem("city", city);
-    localStorage.setItem("country", country);
-  } else {
-    alert("All fields are required.");
-  }
-}
-let details ={dob,address,city,country};
-
-  window.parent.postMessage(
-            JSON.stringify({
-              event_code: "ym-client-event",
-            
-               data:details,
-              
-            }),
-            "*"
-          );
-}
-
-
+console.log(a);
+       window.parent.postMessage(
+       JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: a
+               }),
+                "*"
+           );  
+     }
 
     </script>
     
